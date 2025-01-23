@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block title %}Share a post{% endblock %}
+{% block content %}
+{% if sent %}
+<h1>메일이 성공적으로 보내졌습니다.</h1>
+<p>
+    "{{ post.title }}" 포스트가  {{ form.cleaned_data.to }} 에게 성공적으로 보내졌습니다.
+</p>
+{% else %}
+<h1>"{{ post.title }}" 포스트를 메일로 공유하기.</h1>
+<form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="메일 보내기">
+</form>
+{% endif %}
+{% endblock content %}
