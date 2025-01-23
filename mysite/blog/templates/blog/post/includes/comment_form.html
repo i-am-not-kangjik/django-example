@@ -1,0 +1,6 @@
+<h2> 새로운 댓글 작성하기 </h2>
+<form action="{% url 'blog:post_comment' post.id %}" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="댓글 작성하기">
+</form>
