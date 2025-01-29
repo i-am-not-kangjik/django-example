@@ -14,6 +14,15 @@
       총 게시글 수 {% total_posts %}개
       <h3>최근 게시글</h3>
       {% show_latest_posts 3 %}
+    <h3>가장 댓글이 많은 게시글들</h3>
+    {% get_most_commented_posts as most_commented_posts %}
+    <ul>
+      {% for post in most_commented_posts  %}
+        <li>
+          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
     </div>
   </body>
 </html>
